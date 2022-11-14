@@ -169,4 +169,32 @@ student_list = [student_1, student_2]
 
 lecturer_list = [lecturer_1, lecturer_2]
 
+def student_rating(student_list, course_name):
+
+    sum_all = 0
+    count_all = 0
+    for stud in student_list:
+       if stud.courses_in_progress == [course_name]:
+            sum_all += stud.average_rating
+            count_all += 1
+    average_for_all = sum_all / count_all
+    return average_for_all
+
+def lecturer_rating(lecturer_list, course_name):
+
+    sum_all = 0
+    count_all = 0
+    for lect in lecturer_list:
+        if lect.courses_attached == [course_name]:
+            sum_all += lect.average_rating
+            count_all += 1
+    average_for_all = sum_all / count_all
+    return average_for_all
+
+print(f"Средняя оценка для всех студентов по курсу {'Python'}: {student_rating(student_list, 'Python')}")
+print()
+
+print(f"Средняя оценка для всех лекторов по курсу {'Python'}: {lecturer_rating(lecturer_list, 'Python')}")
+print()
+
 
